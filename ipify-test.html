@@ -1,12 +1,12 @@
 <html>
     <meta charset="UTF-8">
-<script type="application/javascript" src="./ip-address.js"></script>
-<script type="application/javascript">
-    function getIP(json) {
-        document.write(json.ip);
-        sendIP(String(json.ip));
-      return json.ip;
-    }
-</script>
-<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+    <script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/ip-address.js"></script>
+    <script type="application/javascript">
+        function getIP(json) {
+            document.write(json.ip);
+            sendIP(String(json.ip));
+          return json.ip;
+        }
+    </script>
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 </html>
