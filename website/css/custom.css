@@ -1,0 +1,90 @@
+.sidebar-nav, .navbar{
+    background: #79ad61;
+}
+.sm-nav-logo{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/images/logo.png');
+}
+.navbar-toggler{
+    background: black;
+    border-radius: 10px;
+}
+.navbar .navbar-brand{
+    color: black;
+    margin-left:50px ;
+}
+.nav-logo{
+    width: 102px;
+    height: 106px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/images/logo.png');
+}
+.nav-logo-container{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.offcanvas-start{
+    border:none;
+}
+.navbar-dark .navbar-nav .me-2,span{
+    font-size: 20px;
+    color: black;
+}
+.nav-link{
+    border-radius: 50px 0  0 50px;  /* remove for nav style 2 */
+    color: black;
+    margin-left: 20px;
+    padding: 20px;
+}
+.sidebar-nav{
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.445);
+}
+.nav-link-active{
+    background: #FFFFFF;
+    border-radius: 50px 0  0 50px; /* remove for nav style 2 */
+    margin-left: 20px; /* remove for nav style 2 */
+    padding-left: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.445);
+    transition: 0.5s;
+}
+.nav-link:hover{
+    border-radius: 50px 0  0 50px;
+    background: #FFFFFF;
+    margin-left: 20px;
+    padding-left: 20px;
+    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.445);
+    transition: 0.5s;
+}
+
+.nav-link-last{
+    margin-top: 70%;
+    
+}
+
+
+
+@media screen and (min-width: 990px) {
+    .navbar{
+        display: none;
+    }
+    .sidebar-nav{
+        top: 0;
+        height: auto;
+    }
+    .pt-3{
+        margin-top: 0px !important;
+    }
+    .nav-link-last{
+        margin-top: 90%;
+    }
+  }
+  
