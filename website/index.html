@@ -9,535 +9,490 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="/css/custom.css" />
+  <!-- <link rel="stylesheet" href="/css/custom.css" /> -->
   <title>MARKET HARDER - Dashboard</title>
 </head>
 
 <body>
   <!-- top navigation bar -->
   <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
-        aria-controls="offcanvasExample">
-        <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
-      </button> <span class="sm-nav-logo"></span>
-      <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="#">MARKET HARDER</a>
-      <!-- <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#topNavBar"
-          aria-controls="topNavBar"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="topNavBar">
-          <form class="d-flex ms-auto my-3 my-lg-0">
-            <div class="input-group">
-              <input
-                class="form-control"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-primary" type="submit">
-                <i class="bi bi-search"></i>
-              </button>
-            </div>
-          </form>
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle ms-2"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="bi bi-person-fill"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div> -->
-    </div>
-  </nav>
-  <!-- top navigation bar -->
-  <!-- offcanvas -->
-  <div class="offcanvas offcanvas-start sidebar-nav" tabindex="-1" id="sidebar">
-    <div class="offcanvas-body p-0">
-      <nav class="navbar-dark">
-        <ul class="navbar-nav">
-          <li>
-            <div class="nav-logo-container">
-              <div class="nav-logo"></div>
-            </div>
-          </li>
-          <li>
-            <a href="#" class="nav-link px-3 nav-link-active">
-              <span class="me-2"><i class="bi bi-speedometer"></i></span>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link px-3 active">
-              <span class="me-2"><i class="bi bi-gear-fill"></i></span>
-              <span>Integrations</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link px-3 ">
-              <span class="me-2"><i class="bi bi-file-code-fill"></i></span>
-              <span>Script</span>
-            </a>
-          </li>
-          <li class="last-item">
-            <a href="#" class="nav-link px-3 nav-link-last">
-              <span class="me-2"><i class="bi bi-person-fill"></i></span>
-              <span>Account</span>
-            </a>
-          </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+            aria-controls="offcanvasExample">
+            <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+          </button> <span class="sm-nav-logo"></span>
+          <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="#">MARKET HARDER</a>
+    
+        </div>
       </nav>
-    </div>
-  </div>
-  <!-- offcanvas -->
-  <main class="mt-5 pt-3">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12 mb-3">
-          <div class="card">
-            <div class="card-header">
-              <span style="display:inline-flex;margin-top: 4px;">
-                <img width="40" height="40" src="data:image/png;base64,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"/>
-               <h3 style="margin-left: 10px;margin-top: 3px;">Identified Leads</h3></span> 
-              <span style="float: right;"><label for="leads-list">
-                <img width="40" height="40" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAFC0lEQVRYhe2YW0yTZxjHf19LKbbKQKkFsRyKICIOqMhwOjOBeshkidmSqTE645borjAxTi90ZLvYhW66XZCZ4CHb3BbcEo0uOgwYZPPcTVQqSAEVKcppnMqp0G8XlUKxYLEt8WL/m+b9nud539/3vIfvfQr/yzMJIxu79+eL3upYJpMavsjZkuqt/gA7oDe0e3++uD+/wLbvm+PXPGWSeOPFXGn7+mwhUKlYtO/gMYMn/fgMUKkIYNv6bCFwmjLFE0ifAYJ3IH0KCJ5D+o1nvPCw2Kmtj8wY0+bKZzTkdz+fSdl38Jjh8x1bFk4UFPDuLnalLkuPeCC/wDaRTE5KBof0MpkcF3C8wcazAew5cGQ8swDoxu3gmXySwS93bn1h/AtewD1ATzLors+L5ARoDr7P5iOfetypWwp2z83n56CnGnOKpyuDeD91BdEhGkRErtfc5kxZMYM2m8MnPlRLdvJy1IEhtFrauWz6m5LKG4iIbEjPZq46mryLP/G0oxmlXMGuVR9hbmvkcMkvbgOOmcEd+s2ka1Mwmqv519LBWp2e7KThNRWkCGTnqq2EB6u5XnsbucyfLUvfY1mc/YbV1t1BVEg4sepIALSq2USFhNPZ2+U23JiAATI5ETNmUdNUxw9XTpF38QSWvh6iQmY7fBLDY5FJ/Th/p5SCG+fIv3QSS18PseooAIz1JgBiVBFOv+Vm04QAXU6xRLBzWwetAFj6evjkx1wnn/aeTgBmTw9FJvWjrrXByedhq5nOXgtalQYArUrDgG2Qyic1ngO6o/J6E/88usdbsamkRiZS9riSksprGM3VAIiiyL2GahZGzsdfKkOr0lDd+Ihea/+ExnnpXWwTbRy6cJzPTn3LBeNlEsJi2LX6Y1Ii5g2/hNmEVCIlNTqRaQFKys1VDpsyIMC3gEN60FLPb4Y/+LrwGAICyREJw4D1diB9wpJnbfv6kwgSliYmcSUra/s1vX7bhAFtov0o8ZPaV4BSriBvYy45+g8dPqsXLCNvY64jY9bBgWeDD9dhTZ2tNHW2olVp6Onvpba5DgBdXBzqFgtSqfSAIJF89Vdm5uKxAF2uwV5rH0/am9GqNGxIzyY8aCZK+RRMjQ8cPjVNdQTI5HyQ9g5alYb4sBgAyuoqnPoqN5t4e24a9xpqGLTZiFSHMi9wBlNzjxKp0ykEQaDWYPj9ckbGgjeLi+tHs0hHNpLeXeLYhnceVxI4ZSrzwuYgCAKFd//k/N1SRNFembZ0tWFqfMSsoJnEh2rp7u/l9K0irlaXOQ0giiJhr82k5P4N2ns7WP56EoGHTqIOVhGi0SBXKkEUZT1tbSvXxsUdPWEyDY6Md6qLN+Xv8lpdPFpSiYSVi9IJ//USwbWNxCTrYGg5iCK1N292dzQ3n0kvLFw3Mm7SvsVp8Qmob1Yx5U4NUQuShuEABIGIlBSFv1yefX3Fiu0j4577Z2HoLudtdRqN3N+zhzlpafZpdaH+7m4qS0stotW6+o2iolLw8ZV/yEdo72Ja7lGi588fEw7AX6EgSqdT1hoMp4c2jc8zKA4MYMzJYapEglqrdSvmaVXVwNPq6ooWiSTV5xmUf38O/4oKOoEGo9FhS16zxinu1tmzI5t+QGIwHPb9lX9vBux1fn41K8ul/+KiImH0s0lZg65s7uqVL5pe+ZrklQd8bordLahfRpvWrZ1wzHO7ZjJ0JTNTdHXMTHgX+1Kjzr0x9R/oNZF/xfyXHwAAAABJRU5ErkJggg=="/>
-                <!-- <img height="25" width="25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACYUlEQVR4nO2asWtTURSHv6hxiAgpxUEoBUulrqUUcRR07VYsWOjWTShddHFzcRI7tR26uBQEQfAPUMdOXRxc1G6tDTi0ldKU1OG+wmt4yb0l591zTO4HF5KXk3N/fMnLu++9QGKwqQTUVIHlsoO00QA2gLPI8xZSwwWJPVYJ+4BKR0uAGQmaAkxI0BLQyj1+i6IELQGvgB+552rfBC0Bi8AoBiRoCgADErQFgLIECwJAUYIVAaAkwZIAUJBgTQBElmBRAESUYFUARJJgWQBEkGBdAPQgIaSoBhxdIowUO7gLI6Hcwok4ZwVYwgnpiGUBEtwA/nYruBIpiFmSAO0A2iQB2gG0SQK0A2hzTaDHR+LcOdoEpqWbSgg4wC1Dy+a4jKYSAm4DjwT6+KiX0TQthSMFMUsSoB1AG4kfwUPgt0CfPKPIZBPBd0XoXQlz/vLMGTpqvonSLiDQ4z6wJtAnz7Bwv46kdUCkIGZJArQDlMwLX4HEb8A34FNooh54CowE1B0Cu8A47lC4QI+Hao11QBFfPTnOcP8smwXuAPvZthPgYS8T/08CXubqHwPNbHsDuFvUVGIXOPG8LsVNuq9b3gNPuHgrbAl4kz3+DjwA/lx2Yu1/ioaMbdwxv4j1XN0X4Hq/CWgAY13yV4HPufqNfhJwCswAQ9m42pa9nm2/B+zl3ve8XwS0j6m27Ecd6lrAHBg6545MBbcr/BwUAVvAh4LtE4MiYBt4XfRCv58LeEkCtANokwRoB9AmCdAOoE3IOqBJwKUlRSZxp8EAz3BXg86pxo8Tn3n85wgd71sM/C7wD5vVNAamtXsdAAAAAElFTkSuQmCC"/>
-               <br> Upload List -->
-              </label>
-                <input type="file" id="leads-list" name="leads-list" style="display: none;">
-                <label for="leads-list"> 
-                  <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACYUlEQVR4nO2asWtTURSHv6hxiAgpxUEoBUulrqUUcRR07VYsWOjWTShddHFzcRI7tR26uBQEQfAPUMdOXRxc1G6tDTi0ldKU1OG+wmt4yb0l591zTO4HF5KXk3N/fMnLu++9QGKwqQTUVIHlsoO00QA2gLPI8xZSwwWJPVYJ+4BKR0uAGQmaAkxI0BLQyj1+i6IELQGvgB+552rfBC0Bi8AoBiRoCgADErQFgLIECwJAUYIVAaAkwZIAUJBgTQBElmBRAESUYFUARJJgWQBEkGBdAPQgIaSoBhxdIowUO7gLI6Hcwok4ZwVYwgnpiGUBEtwA/nYruBIpiFmSAO0A2iQB2gG0SQK0A2hzTaDHR+LcOdoEpqWbSgg4wC1Dy+a4jKYSAm4DjwT6+KiX0TQthSMFMUsSoB1AG4kfwUPgt0CfPKPIZBPBd0XoXQlz/vLMGTpqvonSLiDQ4z6wJtAnz7Bwv46kdUCkIGZJArQDlMwLX4HEb8A34FNooh54CowE1B0Cu8A47lC4QI+Hao11QBFfPTnOcP8smwXuAPvZthPgYS8T/08CXubqHwPNbHsDuFvUVGIXOPG8LsVNuq9b3gNPuHgrbAl4kz3+DjwA/lx2Yu1/ioaMbdwxv4j1XN0X4Hq/CWgAY13yV4HPufqNfhJwCswAQ9m42pa9nm2/B+zl3ve8XwS0j6m27Ecd6lrAHBg6545MBbcr/BwUAVvAh4LtE4MiYBt4XfRCv58LeEkCtANokwRoB9AmCdAOoE3IOqBJwKUlRSZxp8EAz3BXg86pxo8Tn3n85wgd71sM/C7wD5vVNAamtXsdAAAAAElFTkSuQmCC"/>
-                   Download .CSV -->
-                   <!-- <img width="32" height="32" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAFAElEQVR4nO3baYgcRRQH8F+MMRoC8UKD52oiMVEjHiiKYhQUJXgiIigYUIIEgqKoEPSTwRP9ICLeQhCJnzwi4hkP1BCIRgRvXY33rVGDGtesH1613TuZnenZ7dmZMfuHoaqrXle//terqlevehjHlo0JJWQm4bJ2K1KDH3A/Bsf4uXUxRSgy1r+7lOugtqNTBIwJCVu3KH8HbmmHIgkz8EzheiH+wiXaNBxaJeBn9LdDkYTJhfyg6P3F6botJGxVdYMV4jp8kvKLcac2DIduJuAzHC8nYaE2kNDNBMA6bSah2wmgzST0AgG0kYReIYA2kdBLBNAGEnqNAIKEeSoioRcJIJbISkjoVQKoiIReJoAKSOh1AhglCa1uhsYSS8TLlMXEQn4h/sSlKthAFeMBS0fbWBPMVm08YUqzB3abBWzAc6NsYwb2qUCX/zCWFlAFlmrBAv4Pk+CoME5ApxXoNMYJ6LQCncYWT0C7/IDdcSr6sB6P4+0amQNwCnbCl1ghtron4YQkczN+LNxzNg4XS9zV+Kc96g9Fq37AVfjDUI/s8hqZW7CpRuaBVHduoezkmvteTOW1ZBbRkh9QtQVcgRtS/kM8LXr45YLMAvlh68tYi/2wOpW9VpA9GE8Vruem9NXqVG6OshbQJ46xBvGEoac8RbySZB5p0NYXSeahQtmeBT0WNLi3Y57gxdgGG+VnevXQl9LVw9STW8HBhbK5hXxlFlAlASemdCW+aiC3LqXzDT8EV6V0FrZL+YyA7/DRCHXcDFURMFGu4Nomsnen9BixOuxaRyazgIk4MOXnFuoqOyStioBp8t78ronsMvnYPgVvCjKKWCsCGuQvflBKK50AqyKgONkMNJEdxAW4KeWn41mxvmfYiDUpP0dYwsx03YyAW0VMYIZYjhuiKgJ+L+SnlZAfEP7C6ULJbUUcr4hsHpgtJs7JwireaNL2T+Ibhn4lhkpVfsB6/ILtxcRVFiuE73A7DhMv+mmqy+aBOYU219h8ddkbRzR5Tj9eb0GvISjrBzybZL4WX5aVxaxC+0cWyndNZZtwTcrfWOf+8w31KIf71qguqlwGH07pdNGrZZGt9YPyJRK+xccivH1GKqvcA6zSFV6GK4Vbu1SM3aewg/jw6YMkdy/eF2v5TDEXEMHQb2raXCUms0MFQa9pjEXCBc/QyCMtjVY2Q7Pxuc1NMHNdJ4mJrLb+Y+xVp71FBZn3hnlmcQgcVlO3QZMhUPVm6F2xXi/EcdhR9Gr2ZdkEsRGahz3EjL0S9+C3Ou29JJ+8nqxY19Lo9rD4qCxgi48IjRPQaQU6jXECOq1Ap9Ftp8ONcI5wtGqxY4l7z7L5CsHQL9OHRbcsgxPwoMY+/3DLYL3fO9i+lyxgEBdhXxyVygaEs5Rte3+tuecFuSt8iIhQE0Gb+WIH2xTdYgEZdhb+fqbTkhL3HCuPWP+Bo1t5YLcRQOw5fhY6/YPTGsj2iR7PttbntfqwbiSAOEL7W+j1qzx4WsRUvCXX/5qRPKhbCYAL5bp9IoZHhq3wWKF+uTqfzrU6Ce4gJqFO4zd8j/tEz18qTH25OE8cwLXyofGKCMSOKJzeyb/NDfdbL06XiZ5+tFB3mzhFzg5f+7HLSF68mwkYFBGlzOSnirOErG5jSn/C/o1erlv/OlsWa/B8yu8hzht3S9d/i+GwsgN6dQyHijOKQXFYu0XiTFxfVvhfKk71DYGl8JcAAAAASUVORK5CYII="/> -->
-                   <img width="40" height="40" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAFF0lEQVRYhe2Ya0yTVxjHf1BKkUaCQMWJ5VKDMIcKgqyLmzonDqfEON0WzRZnXNxmtkwT41zi1GwfzIYXTLYFN7zs4jadiUZBJmwokkwBKQNXESl3WkAQuVhLKfTdBwSsa0tZaZMl+39pznv+5zm/87zv+7znFP6Xc/J4tLEjNUMYr8Bisajk0y0bEsYrHjAIOB7akZohpGacMu86dLzQWSbP8ViYNb27NsXDT+o7b9fBYyXOxHEZoNTXh3fWpnj4TZTGOQPpMkAYH0iXAoLzkF72OnPr8yzaSWGLbfZZ8zwOmf7T+bhdB4+VfLJ1Q/xYQYHxfYut6b7eIOzLOGUeSybdksEh/ZtM2gW0N5m9PoCP9h2x1+0BzLUb4KFcksG92zaOOn6UBTgG6EwGHfWMJgtA3aTbrD/yodNBHdIkx2wur4POyuYtDpD6syZhKRFBcgQEimrKOV+Wx4DZPOyJnqIgJfZ5gv2C6NB38YdGRX5lMQIC65QpRAVH8NWlH2ntbkcq8WV78lvoOu9wOP9nhwFtZnBr0nqUijhu6qq5p+9m1dwkUuaMPFP+vn5sS95IyKRgimrLkYi92fDsahbMGNxhdT7oJjwohMjgMAAUsmmEB4XQ03vfYTibgD5iCaGBU6lpa+T7q2f56tIJ9EYD4UHThj0xIZGIRV78eqOAU8XZZFz5Bb3RQGRwOAA3tRoApstCLX7VOs2YAK3eYk+PQW7TgAkAvdHA5h/2WHi6DD0ATAuYgljkRWNHs4WnvkNHT68ehUwOgEImp988QGVLjfOAjkit1VDaUMFzkQkkhMVQ1lRJfmUhN3XVAAiCQEVzNfFhT+EtEqOQyam+00Cvqc89gGbBTFruccIDQ4gPj2FRVCJPK2ZzKPdbShsqBheh05AYMZuEiBgm+khR66p4fcmLwzG+43PXAQ6p7q6WurtaVPVq9qx8n9jQmSOA2ioAkmbOf9jWoAyMZuebaQAkLkqxOAMVXT5vcUayCWgWBkuJl2iwWyrxJfWV7dxurSMt9zgAy2YtIGXOYr65cpLShgpMA/0AeHqMzNHW00FbTwcKmRxDXy+17Y0oiQZg03tbLOb8+os0qwmwCthrMtLS1Y5CJmedMoUQ/8lIJRPQ3Kkb9tS0NeIjlvBa4nIUMjnRT0wHoKzxlkUstU7DoqhEKpprLGqoo7JZBw/kHKW4tpxY+ZNIJb6cLLpA9o0rw/2VLbXsv3iUtp4OlIpYzGYzRwpOU1KntoijqldT166lqLZ8zHBg5xls7b5L+mX7FV+tq0Ktq7LrKWu89Y+sjkX/rW/x1HszhvdyrtROrL8Q1uTSLb+98eMCOB4b1r37v+Rs5kVg9Mw9XheBwy7PYNyqKFS3/iJYFkZcfKLNuR6ti6ria/3lpaUVLSL9B27Z8s/7LJ43Nm0hMFBGaHiE3TFNjfX8qVL1CAPGZZqcbKPbnsE1m5dy4kAmL61cjX9AgNWxXZ2d5F7IMvT39a4sys/SgjsPTWEwuW8K6UdPsPzlV/EWe1t4+00mss+d0Q9g3laUn1UwdN2tdXBF8gso58VRkJeLIIy8D4Ig8Htu9gNDr+H0tdwz6Y+OcXuh3rF1MxPEIspU14evlV4v7G9u0la3ih68/bjfZX8BW5OPRMKK5MWY+ozs/ng3yvkL8RR5knMh654wYJx1NS9TaxfQnUpcuOIZsUTyGwiYjH1LivIzr1rzidwNNiRt/e2mEEV0hwA5hXnnztry/Q2iFsDA52esxQAAAABJRU5ErkJggg=="/>
+      <!-- top navigation bar -->
+      <!-- offcanvas -->
+      <div class="offcanvas offcanvas-start sidebar-nav" tabindex="-1" id="sidebar">
+        <div class="offcanvas-body p-0">
+          <nav class="navbar-dark">
+            <ul class="navbar-nav">
+              <li>
+                <div class="nav-logo-container">
+                  <div class="nav-logo"></div>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="nav-link px-3 nav-link-active">
+                  <span class="me-2"><i class="bi bi-speedometer"></i></span>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              <li>
+                <a href="integrations.html" class="nav-link px-3">
+                  <span class="me-2"><i class="bi bi-gear-fill"></i></span>
+                  <span>Integrations</span>
+                </a>
+              </li>
+              <li>
+                <a href="script.html" class="nav-link px-3 ">
+                  <span class="me-2"><i class="bi bi-file-code-fill"></i></span>
+                  <span>Script</span>
+                </a>
+              </li>
+              <li class="last-item">
+                <a href="accounts.html" class="nav-link px-3 nav-link-last">
+                  <span class="me-2"><i class="bi bi-person-fill"></i></span>
+                  <span>Account</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- offcanvas -->
+      <main class="mt-5 pt-3">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <div class="card">
+                <div class="card-header" style="display: inline-flex; align-items: center; justify-content: space-between;">
+                  <span style="display:inline-flex;margin-top: 4px; align-items: center;" >
+                    <img width="40" height="40" src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-filter-business-and-management-kiranshastry-solid-kiranshastry-4.png" />
+                   <h3 style="margin-left: 10px;margin-top: 3px; display: inline; align-items: center;">Identified Leads</h3></span> 
+                  <span style="float: right;"><label for="leads-list">
+                    <img class="mb-25px" src="https://img.icons8.com/ios-filled/50/000000/import-csv.png"/>
+                    <!-- <img height="25" width="25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACYUlEQVR4nO2asWtTURSHv6hxiAgpxUEoBUulrqUUcRR07VYsWOjWTShddHFzcRI7tR26uBQEQfAPUMdOXRxc1G6tDTi0ldKU1OG+wmt4yb0l591zTO4HF5KXk3N/fMnLu++9QGKwqQTUVIHlsoO00QA2gLPI8xZSwwWJPVYJ+4BKR0uAGQmaAkxI0BLQyj1+i6IELQGvgB+552rfBC0Bi8AoBiRoCgADErQFgLIECwJAUYIVAaAkwZIAUJBgTQBElmBRAESUYFUARJJgWQBEkGBdAPQgIaSoBhxdIowUO7gLI6Hcwok4ZwVYwgnpiGUBEtwA/nYruBIpiFmSAO0A2iQB2gG0SQK0A2hzTaDHR+LcOdoEpqWbSgg4wC1Dy+a4jKYSAm4DjwT6+KiX0TQthSMFMUsSoB1AG4kfwUPgt0CfPKPIZBPBd0XoXQlz/vLMGTpqvonSLiDQ4z6wJtAnz7Bwv46kdUCkIGZJArQDlMwLX4HEb8A34FNooh54CowE1B0Cu8A47lC4QI+Hao11QBFfPTnOcP8smwXuAPvZthPgYS8T/08CXubqHwPNbHsDuFvUVGIXOPG8LsVNuq9b3gNPuHgrbAl4kz3+DjwA/lx2Yu1/ioaMbdwxv4j1XN0X4Hq/CWgAY13yV4HPufqNfhJwCswAQ9m42pa9nm2/B+zl3ve8XwS0j6m27Ecd6lrAHBg6545MBbcr/BwUAVvAh4LtE4MiYBt4XfRCv58LeEkCtANokwRoB9AmCdAOoE3IOqBJwKUlRSZxp8EAz3BXg86pxo8Tn3n85wgd71sM/C7wD5vVNAamtXsdAAAAAElFTkSuQmCC"/>
+                   <br> Upload List -->
                   </label>
-                <input type="file" id="leads-list" name="leads-list" style="display: none;">
-                Range</span>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table id="example" class="table table-striped data-table" style="width: 100%">
-                  <thead>
-                    <tr>
-                      <th>Company</th>
-                      <th>Address</th>
-                      <th>Business Phone</th>
-                      <th>Contact</th>
-                      <th>Social Media</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                    </tr>
-                    <tr>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                    </tr>
-                    <tr>
-                      <td>Cedric Kelly</td>
-                      <td>Senior Javascript Developer</td>
-                      <td>Edinburgh</td>
-                      <td>22</td>
-                      <td>2012/03/29</td>
-                    </tr>
-                    <tr>
-                      <td>Airi Satou</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>33</td>
-                      <td>2008/11/28</td>
-                    </tr>
-                    <tr>
-                      <td>Brielle Williamson</td>
-                      <td>Integration Specialist</td>
-                      <td>New York</td>
-                      <td>61</td>
-                      <td>2012/12/02</td>
-                    </tr>
-                    <tr>
-                      <td>Herrod Chandler</td>
-                      <td>Sales Assistant</td>
-                      <td>San Francisco</td>
-                      <td>59</td>
-                      <td>2012/08/06</td>
-                    </tr>
-                    <tr>
-                      <td>Rhona Davidson</td>
-                      <td>Integration Specialist</td>
-                      <td>Tokyo</td>
-                      <td>55</td>
-                      <td>2010/10/14</td>
-                    </tr>
-                    <tr>
-                      <td>Colleen Hurst</td>
-                      <td>Javascript Developer</td>
-                      <td>San Francisco</td>
-                      <td>39</td>
-                      <td>2009/09/15</td>
-                    </tr>
-                    <tr>
-                      <td>Sonya Frost</td>
-                      <td>Software Engineer</td>
-                      <td>Edinburgh</td>
-                      <td>23</td>
-                      <td>2008/12/13</td>
-                    </tr>
-                    <tr>
-                      <td>Jena Gaines</td>
-                      <td>Bussiness Phone Manager</td>
-                      <td>London</td>
-                      <td>30</td>
-                      <td>2008/12/19</td>
-                    </tr>
-                    <tr>
-                      <td>Quinn Flynn</td>
-                      <td>Support Lead</td>
-                      <td>Edinburgh</td>
-                      <td>22</td>
-                      <td>2013/03/03</td>
-                    </tr>
-                    <tr>
-                      <td>Charde Marshall</td>
-                      <td>Regional Director</td>
-                      <td>San Francisco</td>
-                      <td>36</td>
-                      <td>2008/10/16</td>
-                    </tr>
-                    <tr>
-                      <td>Haley Kennedy</td>
-                      <td>Senior Marketing Designer</td>
-                      <td>London</td>
-                      <td>43</td>
-                      <td>2012/12/18</td>
-                    </tr>
-                    <tr>
-                      <td>Tatyana Fitzpatrick</td>
-                      <td>Regional Director</td>
-                      <td>London</td>
-                      <td>19</td>
-                      <td>2010/03/17</td>
-                    </tr>
-                    <tr>
-                      <td>Michael Silva</td>
-                      <td>Marketing Designer</td>
-                      <td>London</td>
-                      <td>66</td>
-                      <td>2012/11/27</td>
-                    </tr>
-                    <tr>
-                      <td>Paul Byrd</td>
-                      <td>Chief Financial Bussiness Phoner (CFO)</td>
-                      <td>New York</td>
-                      <td>64</td>
-                      <td>2010/06/09</td>
-                    </tr>
-                    <tr>
-                      <td>Gloria Little</td>
-                      <td>Systems Administrator</td>
-                      <td>New York</td>
-                      <td>59</td>
-                      <td>2009/04/10</td>
-                    </tr>
-                    <tr>
-                      <td>Bradley Greer</td>
-                      <td>Software Engineer</td>
-                      <td>London</td>
-                      <td>41</td>
-                      <td>2012/10/13</td>
-                    </tr>
-                    <tr>
-                      <td>Dai Rios</td>
-                      <td>Personnel Lead</td>
-                      <td>Edinburgh</td>
-                      <td>35</td>
-                      <td>2012/09/26</td>
-                    </tr>
-                    <tr>
-                      <td>Jenette Caldwell</td>
-                      <td>Development Lead</td>
-                      <td>New York</td>
-                      <td>30</td>
-                      <td>2011/09/03</td>
-                    </tr>
-                    <tr>
-                      <td>Yuri Berry</td>
-                      <td>Chief Marketing Bussiness Phoner (CMO)</td>
-                      <td>New York</td>
-                      <td>40</td>
-                      <td>2009/06/25</td>
-                    </tr>
-                    <tr>
-                      <td>Caesar Vance</td>
-                      <td>Pre-Sales Support</td>
-                      <td>New York</td>
-                      <td>21</td>
-                      <td>2011/12/12</td>
-                    </tr>
-                    <tr>
-                      <td>Doris Wilder</td>
-                      <td>Sales Assistant</td>
-                      <td>Sydney</td>
-                      <td>23</td>
-                      <td>2010/09/20</td>
-                    </tr>
-                    <tr>
-                      <td>Angelica Ramos</td>
-                      <td>Chief Executive Bussiness Phoner (CEO)</td>
-                      <td>London</td>
-                      <td>47</td>
-                      <td>2009/10/09</td>
-                    </tr>
-                    <tr>
-                      <td>Gavin Joyce</td>
-                      <td>Developer</td>
-                      <td>Edinburgh</td>
-                      <td>42</td>
-                      <td>2010/12/22</td>
-                    </tr>
-                    <tr>
-                      <td>Jennifer Chang</td>
-                      <td>Regional Director</td>
-                      <td>Singapore</td>
-                      <td>28</td>
-                      <td>2010/11/14</td>
-                    </tr>
-                    <tr>
-                      <td>Brenden Wagner</td>
-                      <td>Software Engineer</td>
-                      <td>San Francisco</td>
-                      <td>28</td>
-                      <td>2011/06/07</td>
-                    </tr>
-                    <tr>
-                      <td>Fiona Green</td>
-                      <td>Chief Operating Bussiness Phoner (COO)</td>
-                      <td>San Francisco</td>
-                      <td>48</td>
-                      <td>2010/03/11</td>
-                    </tr>
-                    <tr>
-                      <td>Shou Itou</td>
-                      <td>Regional Marketing</td>
-                      <td>Tokyo</td>
-                      <td>20</td>
-                      <td>2011/08/14</td>
-                    </tr>
-                    <tr>
-                      <td>Michelle House</td>
-                      <td>Integration Specialist</td>
-                      <td>Sydney</td>
-                      <td>37</td>
-                      <td>2011/06/02</td>
-                    </tr>
-                    <tr>
-                      <td>Suki Burks</td>
-                      <td>Developer</td>
-                      <td>London</td>
-                      <td>53</td>
-                      <td>2009/10/22</td>
-                    </tr>
-                    <tr>
-                      <td>Prescott Bartlett</td>
-                      <td>Technical Author</td>
-                      <td>London</td>
-                      <td>27</td>
-                      <td>2011/05/07</td>
-                    </tr>
-                    <tr>
-                      <td>Gavin Cortez</td>
-                      <td>Team Leader</td>
-                      <td>San Francisco</td>
-                      <td>22</td>
-                      <td>2008/10/26</td>
-                    </tr>
-                    <tr>
-                      <td>Martena Mccray</td>
-                      <td>Post-Sales support</td>
-                      <td>Edinburgh</td>
-                      <td>46</td>
-                      <td>2011/03/09</td>
-                    </tr>
-                    <tr>
-                      <td>Unity Butler</td>
-                      <td>Marketing Designer</td>
-                      <td>San Francisco</td>
-                      <td>47</td>
-                      <td>2009/12/09</td>
-                    </tr>
-                    <tr>
-                      <td>Howard Hatfield</td>
-                      <td>Bussiness Phone Manager</td>
-                      <td>San Francisco</td>
-                      <td>51</td>
-                      <td>2008/12/16</td>
-                      <td>$164,500</td>
-                    <tr>
-                      <td>Hope Fuentes</td>
-                      <td>Secretary</td>
-                      <td>San Francisco</td>
-                      <td>41</td>
-                      <td>2010/02/12</td>
-                    </tr>
-                    <tr>
-                      <td>Vivian Harrell</td>
-                      <td>Financial Controller</td>
-                      <td>San Francisco</td>
-                      <td>62</td>
-                      <td>2009/02/14</td>
-                    </tr>
-                    <tr>
-                      <td>Timothy Mooney</td>
-                      <td>Bussiness Phone Manager</td>
-                      <td>London</td>
-                      <td>37</td>
-                      <td>2008/12/11</td>
-                    </tr>
-                    <tr>
-                      <td>Jackson Bradshaw</td>
-                      <td>Director</td>
-                      <td>New York</td>
-                      <td>65</td>
-                      <td>2008/09/26</td>
-                    </tr>
-                    <tr>
-                      <td>Olivia Liang</td>
-                      <td>Support Engineer</td>
-                      <td>Singapore</td>
-                      <td>64</td>
-                      <td>2011/02/03</td>
-                    </tr>
-                    <tr>
-                      <td>Bruno Nash</td>
-                      <td>Software Engineer</td>
-                      <td>London</td>
-                      <td>38</td>
-                      <td>2011/05/03</td>
-                    </tr>
-                    <tr>
-                      <td>Sakura Yamamoto</td>
-                      <td>Support Engineer</td>
-                      <td>Tokyo</td>
-                      <td>37</td>
-                      <td>2009/08/19</td>
-                    </tr>
-                    <tr>
-                      <td>Thor Walton</td>
-                      <td>Developer</td>
-                      <td>New York</td>
-                      <td>61</td>
-                      <td>2013/08/11</td>
-                    </tr>
-                    <tr>
-                      <td>Finn Camacho</td>
-                      <td>Support Engineer</td>
-                      <td>San Francisco</td>
-                      <td>47</td>
-                      <td>2009/07/07</td>
-                    </tr>
-                    <tr>
-                      <td>Serge Baldwin</td>
-                      <td>Data Coordinator</td>
-                      <td>Singapore</td>
-                      <td>64</td>
-                      <td>2012/04/09</td>
-                    </tr>
-                    <tr>
-                      <td>Zenaida Frank</td>
-                      <td>Software Engineer</td>
-                      <td>New York</td>
-                      <td>63</td>
-                      <td>2010/01/04</td>
-                    </tr>
-                    <tr>
-                      <td>Zorita Serrano</td>
-                      <td>Software Engineer</td>
-                      <td>San Francisco</td>
-                      <td>56</td>
-                      <td>2012/06/01</td>
-                    </tr>
-                    <tr>
-                      <td>Jennifer Acosta</td>
-                      <td>Junior Javascript Developer</td>
-                      <td>Edinburgh</td>
-                      <td>43</td>
-                      <td>2013/02/01</td>
-                    </tr>
-                    <tr>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>46</td>
-                      <td>2011/12/06</td>
-                    </tr>
-                    <tr>
-                      <td>Hermione Butler</td>
-                      <td>Regional Director</td>
-                      <td>London</td>
-                      <td>47</td>
-                      <td>2011/03/21</td>
-                    </tr>
-                    <tr>
-                      <td>Lael Greer</td>
-                      <td>Systems Administrator</td>
-                      <td>London</td>
-                      <td>21</td>
-                      <td>2009/02/27</td>
-                    </tr>
-
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <th>Company</th>
-                      <th>Address</th>
-                      <th>Business Phone</th>
-                      <th>Contact</th>
-                      <th>Social Media</th>
-                    </tr>
-                  </tfoot>
-                </table>
+                    <input type="file" id="leads-list" name="leads-list" style="display: none;">
+                    <label for="leads-list"> 
+                      <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACYUlEQVR4nO2asWtTURSHv6hxiAgpxUEoBUulrqUUcRR07VYsWOjWTShddHFzcRI7tR26uBQEQfAPUMdOXRxc1G6tDTi0ldKU1OG+wmt4yb0l591zTO4HF5KXk3N/fMnLu++9QGKwqQTUVIHlsoO00QA2gLPI8xZSwwWJPVYJ+4BKR0uAGQmaAkxI0BLQyj1+i6IELQGvgB+552rfBC0Bi8AoBiRoCgADErQFgLIECwJAUYIVAaAkwZIAUJBgTQBElmBRAESUYFUARJJgWQBEkGBdAPQgIaSoBhxdIowUO7gLI6Hcwok4ZwVYwgnpiGUBEtwA/nYruBIpiFmSAO0A2iQB2gG0SQK0A2hzTaDHR+LcOdoEpqWbSgg4wC1Dy+a4jKYSAm4DjwT6+KiX0TQthSMFMUsSoB1AG4kfwUPgt0CfPKPIZBPBd0XoXQlz/vLMGTpqvonSLiDQ4z6wJtAnz7Bwv46kdUCkIGZJArQDlMwLX4HEb8A34FNooh54CowE1B0Cu8A47lC4QI+Hao11QBFfPTnOcP8smwXuAPvZthPgYS8T/08CXubqHwPNbHsDuFvUVGIXOPG8LsVNuq9b3gNPuHgrbAl4kz3+DjwA/lx2Yu1/ioaMbdwxv4j1XN0X4Hq/CWgAY13yV4HPufqNfhJwCswAQ9m42pa9nm2/B+zl3ve8XwS0j6m27Ecd6lrAHBg6545MBbcr/BwUAVvAh4LtE4MiYBt4XfRCv58LeEkCtANokwRoB9AmCdAOoE3IOqBJwKUlRSZxp8EAz3BXg86pxo8Tn3n85wgd71sM/C7wD5vVNAamtXsdAAAAAElFTkSuQmCC"/>
+                       Download .CSV -->
+                       <!-- <img width="32" height="32" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAFAElEQVR4nO3baYgcRRQH8F+MMRoC8UKD52oiMVEjHiiKYhQUJXgiIigYUIIEgqKoEPSTwRP9ICLeQhCJnzwi4hkP1BCIRgRvXY33rVGDGtesH1613TuZnenZ7dmZMfuHoaqrXle//terqlevehjHlo0JJWQm4bJ2K1KDH3A/Bsf4uXUxRSgy1r+7lOugtqNTBIwJCVu3KH8HbmmHIgkz8EzheiH+wiXaNBxaJeBn9LdDkYTJhfyg6P3F6botJGxVdYMV4jp8kvKLcac2DIduJuAzHC8nYaE2kNDNBMA6bSah2wmgzST0AgG0kYReIYA2kdBLBNAGEnqNAIKEeSoioRcJIJbISkjoVQKoiIReJoAKSOh1AhglCa1uhsYSS8TLlMXEQn4h/sSlKthAFeMBS0fbWBPMVm08YUqzB3abBWzAc6NsYwb2qUCX/zCWFlAFlmrBAv4Pk+CoME5ApxXoNMYJ6LQCncYWT0C7/IDdcSr6sB6P4+0amQNwCnbCl1ghtron4YQkczN+LNxzNg4XS9zV+Kc96g9Fq37AVfjDUI/s8hqZW7CpRuaBVHduoezkmvteTOW1ZBbRkh9QtQVcgRtS/kM8LXr45YLMAvlh68tYi/2wOpW9VpA9GE8Vruem9NXqVG6OshbQJ46xBvGEoac8RbySZB5p0NYXSeahQtmeBT0WNLi3Y57gxdgGG+VnevXQl9LVw9STW8HBhbK5hXxlFlAlASemdCW+aiC3LqXzDT8EV6V0FrZL+YyA7/DRCHXcDFURMFGu4Nomsnen9BixOuxaRyazgIk4MOXnFuoqOyStioBp8t78ronsMvnYPgVvCjKKWCsCGuQvflBKK50AqyKgONkMNJEdxAW4KeWn41mxvmfYiDUpP0dYwsx03YyAW0VMYIZYjhuiKgJ+L+SnlZAfEP7C6ULJbUUcr4hsHpgtJs7JwireaNL2T+Ibhn4lhkpVfsB6/ILtxcRVFiuE73A7DhMv+mmqy+aBOYU219h8ddkbRzR5Tj9eb0GvISjrBzybZL4WX5aVxaxC+0cWyndNZZtwTcrfWOf+8w31KIf71qguqlwGH07pdNGrZZGt9YPyJRK+xccivH1GKqvcA6zSFV6GK4Vbu1SM3aewg/jw6YMkdy/eF2v5TDEXEMHQb2raXCUms0MFQa9pjEXCBc/QyCMtjVY2Q7Pxuc1NMHNdJ4mJrLb+Y+xVp71FBZn3hnlmcQgcVlO3QZMhUPVm6F2xXi/EcdhR9Gr2ZdkEsRGahz3EjL0S9+C3Ou29JJ+8nqxY19Lo9rD4qCxgi48IjRPQaQU6jXECOq1Ap9Ftp8ONcI5wtGqxY4l7z7L5CsHQL9OHRbcsgxPwoMY+/3DLYL3fO9i+lyxgEBdhXxyVygaEs5Rte3+tuecFuSt8iIhQE0Gb+WIH2xTdYgEZdhb+fqbTkhL3HCuPWP+Bo1t5YLcRQOw5fhY6/YPTGsj2iR7PttbntfqwbiSAOEL7W+j1qzx4WsRUvCXX/5qRPKhbCYAL5bp9IoZHhq3wWKF+uTqfzrU6Ce4gJqFO4zd8j/tEz18qTH25OE8cwLXyofGKCMSOKJzeyb/NDfdbL06XiZ5+tFB3mzhFzg5f+7HLSF68mwkYFBGlzOSnirOErG5jSn/C/o1erlv/OlsWa/B8yu8hzht3S9d/i+GwsgN6dQyHijOKQXFYu0XiTFxfVvhfKk71DYGl8JcAAAAASUVORK5CYII="/> -->
+                       <img class="mb-25px" src="https://img.icons8.com/ios-filled/50/000000/export-csv.png"/>
+                      </label>
+                    <input type="file" id="leads-list" name="leads-list" style="display: none;">
+                    Range</span>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="example" class="table table-striped data-table" style="width: 100%">
+                      <thead>
+                        <tr>
+                          <th>Company</th>
+                          <th>Address</th>
+                          <th>Business Phone</th>
+                          <th>Contact</th>
+                          <th>Social Media</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Tiger Nixon</td>
+                          <td>System Architect</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                          <td>2011/04/25</td>
+                        </tr>
+                        <tr>
+                          <td>Garrett Winters</td>
+                          <td>Accountant</td>
+                          <td>Tokyo</td>
+                          <td>63</td>
+                          <td>2011/07/25</td>
+                        </tr>
+                        <tr>
+                          <td>Ashton Cox</td>
+                          <td>Junior Technical Author</td>
+                          <td>San Francisco</td>
+                          <td>66</td>
+                          <td>2009/01/12</td>
+                        </tr>
+                        <tr>
+                          <td>Cedric Kelly</td>
+                          <td>Senior Javascript Developer</td>
+                          <td>Edinburgh</td>
+                          <td>22</td>
+                          <td>2012/03/29</td>
+                        </tr>
+                        <tr>
+                          <td>Airi Satou</td>
+                          <td>Accountant</td>
+                          <td>Tokyo</td>
+                          <td>33</td>
+                          <td>2008/11/28</td>
+                        </tr>
+                        <tr>
+                          <td>Brielle Williamson</td>
+                          <td>Integration Specialist</td>
+                          <td>New York</td>
+                          <td>61</td>
+                          <td>2012/12/02</td>
+                        </tr>
+                        <tr>
+                          <td>Herrod Chandler</td>
+                          <td>Sales Assistant</td>
+                          <td>San Francisco</td>
+                          <td>59</td>
+                          <td>2012/08/06</td>
+                        </tr>
+                        <tr>
+                          <td>Rhona Davidson</td>
+                          <td>Integration Specialist</td>
+                          <td>Tokyo</td>
+                          <td>55</td>
+                          <td>2010/10/14</td>
+                        </tr>
+                        <tr>
+                          <td>Colleen Hurst</td>
+                          <td>Javascript Developer</td>
+                          <td>San Francisco</td>
+                          <td>39</td>
+                          <td>2009/09/15</td>
+                        </tr>
+                        <tr>
+                          <td>Sonya Frost</td>
+                          <td>Software Engineer</td>
+                          <td>Edinburgh</td>
+                          <td>23</td>
+                          <td>2008/12/13</td>
+                        </tr>
+                        <tr>
+                          <td>Jena Gaines</td>
+                          <td>Bussiness Phone Manager</td>
+                          <td>London</td>
+                          <td>30</td>
+                          <td>2008/12/19</td>
+                        </tr>
+                        <tr>
+                          <td>Quinn Flynn</td>
+                          <td>Support Lead</td>
+                          <td>Edinburgh</td>
+                          <td>22</td>
+                          <td>2013/03/03</td>
+                        </tr>
+                        <tr>
+                          <td>Charde Marshall</td>
+                          <td>Regional Director</td>
+                          <td>San Francisco</td>
+                          <td>36</td>
+                          <td>2008/10/16</td>
+                        </tr>
+                        <tr>
+                          <td>Haley Kennedy</td>
+                          <td>Senior Marketing Designer</td>
+                          <td>London</td>
+                          <td>43</td>
+                          <td>2012/12/18</td>
+                        </tr>
+                        <tr>
+                          <td>Tatyana Fitzpatrick</td>
+                          <td>Regional Director</td>
+                          <td>London</td>
+                          <td>19</td>
+                          <td>2010/03/17</td>
+                        </tr>
+                        <tr>
+                          <td>Michael Silva</td>
+                          <td>Marketing Designer</td>
+                          <td>London</td>
+                          <td>66</td>
+                          <td>2012/11/27</td>
+                        </tr>
+                        <tr>
+                          <td>Paul Byrd</td>
+                          <td>Chief Financial Bussiness Phoner (CFO)</td>
+                          <td>New York</td>
+                          <td>64</td>
+                          <td>2010/06/09</td>
+                        </tr>
+                        <tr>
+                          <td>Gloria Little</td>
+                          <td>Systems Administrator</td>
+                          <td>New York</td>
+                          <td>59</td>
+                          <td>2009/04/10</td>
+                        </tr>
+                        <tr>
+                          <td>Bradley Greer</td>
+                          <td>Software Engineer</td>
+                          <td>London</td>
+                          <td>41</td>
+                          <td>2012/10/13</td>
+                        </tr>
+                        <tr>
+                          <td>Dai Rios</td>
+                          <td>Personnel Lead</td>
+                          <td>Edinburgh</td>
+                          <td>35</td>
+                          <td>2012/09/26</td>
+                        </tr>
+                        <tr>
+                          <td>Jenette Caldwell</td>
+                          <td>Development Lead</td>
+                          <td>New York</td>
+                          <td>30</td>
+                          <td>2011/09/03</td>
+                        </tr>
+                        <tr>
+                          <td>Yuri Berry</td>
+                          <td>Chief Marketing Bussiness Phoner (CMO)</td>
+                          <td>New York</td>
+                          <td>40</td>
+                          <td>2009/06/25</td>
+                        </tr>
+                        <tr>
+                          <td>Caesar Vance</td>
+                          <td>Pre-Sales Support</td>
+                          <td>New York</td>
+                          <td>21</td>
+                          <td>2011/12/12</td>
+                        </tr>
+                        <tr>
+                          <td>Doris Wilder</td>
+                          <td>Sales Assistant</td>
+                          <td>Sydney</td>
+                          <td>23</td>
+                          <td>2010/09/20</td>
+                        </tr>
+                        <tr>
+                          <td>Angelica Ramos</td>
+                          <td>Chief Executive Bussiness Phoner (CEO)</td>
+                          <td>London</td>
+                          <td>47</td>
+                          <td>2009/10/09</td>
+                        </tr>
+                        <tr>
+                          <td>Gavin Joyce</td>
+                          <td>Developer</td>
+                          <td>Edinburgh</td>
+                          <td>42</td>
+                          <td>2010/12/22</td>
+                        </tr>
+                        <tr>
+                          <td>Jennifer Chang</td>
+                          <td>Regional Director</td>
+                          <td>Singapore</td>
+                          <td>28</td>
+                          <td>2010/11/14</td>
+                        </tr>
+                        <tr>
+                          <td>Brenden Wagner</td>
+                          <td>Software Engineer</td>
+                          <td>San Francisco</td>
+                          <td>28</td>
+                          <td>2011/06/07</td>
+                        </tr>
+                        <tr>
+                          <td>Fiona Green</td>
+                          <td>Chief Operating Bussiness Phoner (COO)</td>
+                          <td>San Francisco</td>
+                          <td>48</td>
+                          <td>2010/03/11</td>
+                        </tr>
+                        <tr>
+                          <td>Shou Itou</td>
+                          <td>Regional Marketing</td>
+                          <td>Tokyo</td>
+                          <td>20</td>
+                          <td>2011/08/14</td>
+                        </tr>
+                        <tr>
+                          <td>Michelle House</td>
+                          <td>Integration Specialist</td>
+                          <td>Sydney</td>
+                          <td>37</td>
+                          <td>2011/06/02</td>
+                        </tr>
+                        <tr>
+                          <td>Suki Burks</td>
+                          <td>Developer</td>
+                          <td>London</td>
+                          <td>53</td>
+                          <td>2009/10/22</td>
+                        </tr>
+                        <tr>
+                          <td>Prescott Bartlett</td>
+                          <td>Technical Author</td>
+                          <td>London</td>
+                          <td>27</td>
+                          <td>2011/05/07</td>
+                        </tr>
+                        <tr>
+                          <td>Gavin Cortez</td>
+                          <td>Team Leader</td>
+                          <td>San Francisco</td>
+                          <td>22</td>
+                          <td>2008/10/26</td>
+                        </tr>
+                        <tr>
+                          <td>Martena Mccray</td>
+                          <td>Post-Sales support</td>
+                          <td>Edinburgh</td>
+                          <td>46</td>
+                          <td>2011/03/09</td>
+                        </tr>
+                        <tr>
+                          <td>Unity Butler</td>
+                          <td>Marketing Designer</td>
+                          <td>San Francisco</td>
+                          <td>47</td>
+                          <td>2009/12/09</td>
+                        </tr>
+                        <tr>
+                          <td>Howard Hatfield</td>
+                          <td>Bussiness Phone Manager</td>
+                          <td>San Francisco</td>
+                          <td>51</td>
+                          <td>2008/12/16</td>
+                          <td>$164,500</td>
+                        <tr>
+                          <td>Hope Fuentes</td>
+                          <td>Secretary</td>
+                          <td>San Francisco</td>
+                          <td>41</td>
+                          <td>2010/02/12</td>
+                        </tr>
+                        <tr>
+                          <td>Vivian Harrell</td>
+                          <td>Financial Controller</td>
+                          <td>San Francisco</td>
+                          <td>62</td>
+                          <td>2009/02/14</td>
+                        </tr>
+                        <tr>
+                          <td>Timothy Mooney</td>
+                          <td>Bussiness Phone Manager</td>
+                          <td>London</td>
+                          <td>37</td>
+                          <td>2008/12/11</td>
+                        </tr>
+                        <tr>
+                          <td>Jackson Bradshaw</td>
+                          <td>Director</td>
+                          <td>New York</td>
+                          <td>65</td>
+                          <td>2008/09/26</td>
+                        </tr>
+                        <tr>
+                          <td>Olivia Liang</td>
+                          <td>Support Engineer</td>
+                          <td>Singapore</td>
+                          <td>64</td>
+                          <td>2011/02/03</td>
+                        </tr>
+                        <tr>
+                          <td>Bruno Nash</td>
+                          <td>Software Engineer</td>
+                          <td>London</td>
+                          <td>38</td>
+                          <td>2011/05/03</td>
+                        </tr>
+                        <tr>
+                          <td>Sakura Yamamoto</td>
+                          <td>Support Engineer</td>
+                          <td>Tokyo</td>
+                          <td>37</td>
+                          <td>2009/08/19</td>
+                        </tr>
+                        <tr>
+                          <td>Thor Walton</td>
+                          <td>Developer</td>
+                          <td>New York</td>
+                          <td>61</td>
+                          <td>2013/08/11</td>
+                        </tr>
+                        <tr>
+                          <td>Finn Camacho</td>
+                          <td>Support Engineer</td>
+                          <td>San Francisco</td>
+                          <td>47</td>
+                          <td>2009/07/07</td>
+                        </tr>
+                        <tr>
+                          <td>Serge Baldwin</td>
+                          <td>Data Coordinator</td>
+                          <td>Singapore</td>
+                          <td>64</td>
+                          <td>2012/04/09</td>
+                        </tr>
+                        <tr>
+                          <td>Zenaida Frank</td>
+                          <td>Software Engineer</td>
+                          <td>New York</td>
+                          <td>63</td>
+                          <td>2010/01/04</td>
+                        </tr>
+                        <tr>
+                          <td>Zorita Serrano</td>
+                          <td>Software Engineer</td>
+                          <td>San Francisco</td>
+                          <td>56</td>
+                          <td>2012/06/01</td>
+                        </tr>
+                        <tr>
+                          <td>Jennifer Acosta</td>
+                          <td>Junior Javascript Developer</td>
+                          <td>Edinburgh</td>
+                          <td>43</td>
+                          <td>2013/02/01</td>
+                        </tr>
+                        <tr>
+                          <td>Cara Stevens</td>
+                          <td>Sales Assistant</td>
+                          <td>New York</td>
+                          <td>46</td>
+                          <td>2011/12/06</td>
+                        </tr>
+                        <tr>
+                          <td>Hermione Butler</td>
+                          <td>Regional Director</td>
+                          <td>London</td>
+                          <td>47</td>
+                          <td>2011/03/21</td>
+                        </tr>
+                        <tr>
+                          <td>Lael Greer</td>
+                          <td>Systems Administrator</td>
+                          <td>London</td>
+                          <td>21</td>
+                          <td>2009/02/27</td>
+                        </tr>
+    
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>Company</th>
+                          <th>Address</th>
+                          <th>Business Phone</th>
+                          <th>Contact</th>
+                          <th>Social Media</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </main>
+      </main>
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
   <script src="./js/jquery-3.5.1.js"></script>
