@@ -1,5 +1,5 @@
 
-async function sendIP(ipAddr) {
+async function sendIP(ipAddr, pageUrl) {
     url = 'https://j1e82lg769.execute-api.us-east-2.amazonaws.com/test/searchIp';
     fetch(url, {
         method: 'POST',
@@ -8,7 +8,7 @@ async function sendIP(ipAddr) {
             'Content-Type': 'text/plain',
             'Accept': '*/*'
         },
-        body: JSON.stringify({ ip : ipAddr})
+        body: JSON.stringify({ ip : ipAddr, page : pageUrl})
     })
     .then(data => {
         console.log('data');
