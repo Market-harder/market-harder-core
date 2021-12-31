@@ -1,6 +1,6 @@
 
 async function sendIP(ipAddr, pageUrl, apiKey) {
-    url = 'https://jrb6k1c2yk.execute-api.us-east-1.amazonaws.com/test/searchIp';
+    url = 'https://jrb6k1c2yk.execute-api.us-east-1.amazonaws.com/test/searchip';
     fetch(url, {
         method: 'POST',
         mode: 'cors',
