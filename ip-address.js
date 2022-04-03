@@ -1,13 +1,15 @@
 
-async function sendIP(ipAddr, pageUrl, apiKey) {
+async function sendIP(ipAddr, pageUrl, apiKey, id) {
+    console.log('Executing sendIP() from jsdelivr');
     url = 'https://dlnes1h1gk.execute-api.us-east-2.amazonaws.com/test0_3/searchip';
     fetch(url, {
         method: 'POST',
         mode: 'cors',
         headers: {
-            'Content-Type': 'text/plain',
+            'Content-Type': 'application/json',
             'Accept': '*/*',
-            'x-api-key': apiKey
+            'x-api-key': apiKey,
+            'ID': id,
         },
         body: JSON.stringify({ ip : ipAddr, page : pageUrl})
     })
