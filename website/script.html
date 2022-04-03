@@ -72,6 +72,18 @@
               <span>Script</span>
             </a>
           </li>
+          <li>
+            <a href="https://www.plans.marketharder.com/products" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-bag-fill"></i></span>
+                <span>Products</span>
+              </a>
+            </li>
+            <li>
+                <a href="https://marketharderauthalpha1.auth.us-east-1.amazoncognito.com/logout?client_id=11dr4aadh9fk76c7ablauvugel&logout_uri=https://www.marketharder.com/" class="nav-link px-3 ">
+                  <span class="me-2"><i class="bi bi-file-code-fill"></i></span>
+                  <span>Log Out</span>
+                </a>
+              </li>
           <li class="last-item">
             <a href="https://www.marketharder.com/changebilling" class="nav-link px-3 nav-link-last">
               <span class="me-2"><i class="bi bi-person-fill"></i></span>
@@ -117,7 +129,7 @@
               <div class="code-box-copy">
                 <button class="code-box-copy__btn" data-clipboard-target="#example-head" title="Copy"></button>
                 <pre>
-                  <code class="language-html" id="example-head">
+                  <code class="language-html" id="market-harder-script">
                     &lt;!-- Market Harder Script begin --&gt;
                     &lt;link href=&quot;css/style.min.css&quot; rel=&quot;stylesheet&quot;&gt;
                     &lt;script src=&quot;https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/ip-address.js&quot;&gt;&lt;/script&gt;
@@ -166,6 +178,40 @@
       tooltipFadeInTime: 300,
       tooltipFadeOutTime: 300
     });
+  </script>
+  <script>
+      console.log("starting script");
+    const idtoken = localStorage.getItem('idtoken');
+    const accesstoken = localStorage.getItem('accesstoken');
+     const infoForm = document.getElementById("geninfo");
+
+     if (idtoken && accesstoken) {
+         console.log('Logged in! Fetching user info.');
+         let url1 = "https://8mtnj67pse.execute-api.us-east-1.amazonaws.com/test/script?idtoken=" + idtoken;
+        fetch(url1, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            'Authorization' : 'Bearer '+ accesstoken,
+        },
+        })
+        .then(response => response.json())
+    .then(data => {
+        console.log('returned data');
+        console.log(data);
+        if (data.body.script) {
+        document.getElementById("market-harder-script").innerHTML = data.body.script;
+        }
+        return data;
+    })
+    .catch(error => {
+        console.log('error');
+        console.log(error);
+        return error;
+    });
+}
   </script>
 
 </body>

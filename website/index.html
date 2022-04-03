@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/css/dataTables.bootstrap5.min.css" />
@@ -54,6 +55,18 @@
                   <span>Script</span>
                 </a>
               </li>
+              <li>
+                <a href="https://www.plans.marketharder.com/products" class="nav-link px-3">
+                    <span class="me-2"><i class="bi bi-bag-fill"></i></span>
+                    <span>Products</span>
+                  </a>
+                </li>
+              <li>
+                <a href="https://marketharderauthalpha1.auth.us-east-1.amazoncognito.com/logout?client_id=11dr4aadh9fk76c7ablauvugel&logout_uri=https://www.marketharder.com/" class="nav-link px-3 ">
+                  <span class="me-2"><i class="bi bi-file-code-fill"></i></span>
+                  <span>Log Out</span>
+                </a>
+              </li>
               <li class="last-item">
                 <a href="https://www.marketharder.com/changebilling" class="nav-link px-3 nav-link-last">
                     <span class="me-2"><i class="bi bi-person-fill"></i></span>
@@ -66,6 +79,7 @@
       </div>
       <!-- offcanvas -->
       <main class="mt-5 pt-3">
+        <h3 id="welcome-message" style="margin-left: 10px;margin-top: 3px; display: inline; align-items: center;">Welcome!</h3>
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12 mb-3">
@@ -91,399 +105,31 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table id="example" class="table table-striped data-table" style="width: 100%">
+                    <table id="lead-table" class="table table-striped data-table" style="width: 100%">
                       <thead>
                         <tr>
                           <th>Company</th>
                           <th>Address</th>
                           <th>Business Phone</th>
                           <th>Contact</th>
-                          <th>Social Media</th>
+                          <!-- <th>Social Media</th> -->
+                          <th>Webpage</th>
+                          <!-- <th>IP Address</th> -->
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-                          <td>2011/04/25</td>
-                        </tr>
-                        <tr>
-                          <td>Garrett Winters</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>63</td>
-                          <td>2011/07/25</td>
-                        </tr>
-                        <tr>
-                          <td>Ashton Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>San Francisco</td>
-                          <td>66</td>
-                          <td>2009/01/12</td>
-                        </tr>
-                        <tr>
-                          <td>Cedric Kelly</td>
-                          <td>Senior Javascript Developer</td>
-                          <td>Edinburgh</td>
-                          <td>22</td>
-                          <td>2012/03/29</td>
-                        </tr>
-                        <tr>
-                          <td>Airi Satou</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>33</td>
-                          <td>2008/11/28</td>
-                        </tr>
-                        <tr>
-                          <td>Brielle Williamson</td>
-                          <td>Integration Specialist</td>
-                          <td>New York</td>
-                          <td>61</td>
-                          <td>2012/12/02</td>
-                        </tr>
-                        <tr>
-                          <td>Herrod Chandler</td>
-                          <td>Sales Assistant</td>
-                          <td>San Francisco</td>
-                          <td>59</td>
-                          <td>2012/08/06</td>
-                        </tr>
-                        <tr>
-                          <td>Rhona Davidson</td>
-                          <td>Integration Specialist</td>
-                          <td>Tokyo</td>
-                          <td>55</td>
-                          <td>2010/10/14</td>
-                        </tr>
-                        <tr>
-                          <td>Colleen Hurst</td>
-                          <td>Javascript Developer</td>
-                          <td>San Francisco</td>
-                          <td>39</td>
-                          <td>2009/09/15</td>
-                        </tr>
-                        <tr>
-                          <td>Sonya Frost</td>
-                          <td>Software Engineer</td>
-                          <td>Edinburgh</td>
-                          <td>23</td>
-                          <td>2008/12/13</td>
-                        </tr>
-                        <tr>
-                          <td>Jena Gaines</td>
-                          <td>Bussiness Phone Manager</td>
-                          <td>London</td>
-                          <td>30</td>
-                          <td>2008/12/19</td>
-                        </tr>
-                        <tr>
-                          <td>Quinn Flynn</td>
-                          <td>Support Lead</td>
-                          <td>Edinburgh</td>
-                          <td>22</td>
-                          <td>2013/03/03</td>
-                        </tr>
-                        <tr>
-                          <td>Charde Marshall</td>
-                          <td>Regional Director</td>
-                          <td>San Francisco</td>
-                          <td>36</td>
-                          <td>2008/10/16</td>
-                        </tr>
-                        <tr>
-                          <td>Haley Kennedy</td>
-                          <td>Senior Marketing Designer</td>
-                          <td>London</td>
-                          <td>43</td>
-                          <td>2012/12/18</td>
-                        </tr>
-                        <tr>
-                          <td>Tatyana Fitzpatrick</td>
-                          <td>Regional Director</td>
-                          <td>London</td>
-                          <td>19</td>
-                          <td>2010/03/17</td>
-                        </tr>
-                        <tr>
-                          <td>Michael Silva</td>
-                          <td>Marketing Designer</td>
-                          <td>London</td>
-                          <td>66</td>
-                          <td>2012/11/27</td>
-                        </tr>
-                        <tr>
-                          <td>Paul Byrd</td>
-                          <td>Chief Financial Bussiness Phoner (CFO)</td>
-                          <td>New York</td>
-                          <td>64</td>
-                          <td>2010/06/09</td>
-                        </tr>
-                        <tr>
-                          <td>Gloria Little</td>
-                          <td>Systems Administrator</td>
-                          <td>New York</td>
-                          <td>59</td>
-                          <td>2009/04/10</td>
-                        </tr>
-                        <tr>
-                          <td>Bradley Greer</td>
-                          <td>Software Engineer</td>
-                          <td>London</td>
-                          <td>41</td>
-                          <td>2012/10/13</td>
-                        </tr>
-                        <tr>
-                          <td>Dai Rios</td>
-                          <td>Personnel Lead</td>
-                          <td>Edinburgh</td>
-                          <td>35</td>
-                          <td>2012/09/26</td>
-                        </tr>
-                        <tr>
-                          <td>Jenette Caldwell</td>
-                          <td>Development Lead</td>
-                          <td>New York</td>
-                          <td>30</td>
-                          <td>2011/09/03</td>
-                        </tr>
-                        <tr>
-                          <td>Yuri Berry</td>
-                          <td>Chief Marketing Bussiness Phoner (CMO)</td>
-                          <td>New York</td>
-                          <td>40</td>
-                          <td>2009/06/25</td>
-                        </tr>
-                        <tr>
-                          <td>Caesar Vance</td>
-                          <td>Pre-Sales Support</td>
-                          <td>New York</td>
-                          <td>21</td>
-                          <td>2011/12/12</td>
-                        </tr>
-                        <tr>
-                          <td>Doris Wilder</td>
-                          <td>Sales Assistant</td>
-                          <td>Sydney</td>
-                          <td>23</td>
-                          <td>2010/09/20</td>
-                        </tr>
-                        <tr>
-                          <td>Angelica Ramos</td>
-                          <td>Chief Executive Bussiness Phoner (CEO)</td>
-                          <td>London</td>
-                          <td>47</td>
-                          <td>2009/10/09</td>
-                        </tr>
-                        <tr>
-                          <td>Gavin Joyce</td>
-                          <td>Developer</td>
-                          <td>Edinburgh</td>
-                          <td>42</td>
-                          <td>2010/12/22</td>
-                        </tr>
-                        <tr>
-                          <td>Jennifer Chang</td>
-                          <td>Regional Director</td>
-                          <td>Singapore</td>
-                          <td>28</td>
-                          <td>2010/11/14</td>
-                        </tr>
-                        <tr>
-                          <td>Brenden Wagner</td>
-                          <td>Software Engineer</td>
-                          <td>San Francisco</td>
-                          <td>28</td>
-                          <td>2011/06/07</td>
-                        </tr>
-                        <tr>
-                          <td>Fiona Green</td>
-                          <td>Chief Operating Bussiness Phoner (COO)</td>
-                          <td>San Francisco</td>
-                          <td>48</td>
-                          <td>2010/03/11</td>
-                        </tr>
-                        <tr>
-                          <td>Shou Itou</td>
-                          <td>Regional Marketing</td>
-                          <td>Tokyo</td>
-                          <td>20</td>
-                          <td>2011/08/14</td>
-                        </tr>
-                        <tr>
-                          <td>Michelle House</td>
-                          <td>Integration Specialist</td>
-                          <td>Sydney</td>
-                          <td>37</td>
-                          <td>2011/06/02</td>
-                        </tr>
-                        <tr>
-                          <td>Suki Burks</td>
-                          <td>Developer</td>
-                          <td>London</td>
-                          <td>53</td>
-                          <td>2009/10/22</td>
-                        </tr>
-                        <tr>
-                          <td>Prescott Bartlett</td>
-                          <td>Technical Author</td>
-                          <td>London</td>
-                          <td>27</td>
-                          <td>2011/05/07</td>
-                        </tr>
-                        <tr>
-                          <td>Gavin Cortez</td>
-                          <td>Team Leader</td>
-                          <td>San Francisco</td>
-                          <td>22</td>
-                          <td>2008/10/26</td>
-                        </tr>
-                        <tr>
-                          <td>Martena Mccray</td>
-                          <td>Post-Sales support</td>
-                          <td>Edinburgh</td>
-                          <td>46</td>
-                          <td>2011/03/09</td>
-                        </tr>
-                        <tr>
-                          <td>Unity Butler</td>
-                          <td>Marketing Designer</td>
-                          <td>San Francisco</td>
-                          <td>47</td>
-                          <td>2009/12/09</td>
-                        </tr>
-                        <tr>
-                          <td>Howard Hatfield</td>
-                          <td>Bussiness Phone Manager</td>
-                          <td>San Francisco</td>
-                          <td>51</td>
-                          <td>2008/12/16</td>
-                          <td>$164,500</td>
-                        <tr>
-                          <td>Hope Fuentes</td>
-                          <td>Secretary</td>
-                          <td>San Francisco</td>
-                          <td>41</td>
-                          <td>2010/02/12</td>
-                        </tr>
-                        <tr>
-                          <td>Vivian Harrell</td>
-                          <td>Financial Controller</td>
-                          <td>San Francisco</td>
-                          <td>62</td>
-                          <td>2009/02/14</td>
-                        </tr>
-                        <tr>
-                          <td>Timothy Mooney</td>
-                          <td>Bussiness Phone Manager</td>
-                          <td>London</td>
-                          <td>37</td>
-                          <td>2008/12/11</td>
-                        </tr>
-                        <tr>
-                          <td>Jackson Bradshaw</td>
-                          <td>Director</td>
-                          <td>New York</td>
-                          <td>65</td>
-                          <td>2008/09/26</td>
-                        </tr>
-                        <tr>
-                          <td>Olivia Liang</td>
-                          <td>Support Engineer</td>
-                          <td>Singapore</td>
-                          <td>64</td>
-                          <td>2011/02/03</td>
-                        </tr>
-                        <tr>
-                          <td>Bruno Nash</td>
-                          <td>Software Engineer</td>
-                          <td>London</td>
-                          <td>38</td>
-                          <td>2011/05/03</td>
-                        </tr>
-                        <tr>
-                          <td>Sakura Yamamoto</td>
-                          <td>Support Engineer</td>
-                          <td>Tokyo</td>
-                          <td>37</td>
-                          <td>2009/08/19</td>
-                        </tr>
-                        <tr>
-                          <td>Thor Walton</td>
-                          <td>Developer</td>
-                          <td>New York</td>
-                          <td>61</td>
-                          <td>2013/08/11</td>
-                        </tr>
-                        <tr>
-                          <td>Finn Camacho</td>
-                          <td>Support Engineer</td>
-                          <td>San Francisco</td>
-                          <td>47</td>
-                          <td>2009/07/07</td>
-                        </tr>
-                        <tr>
-                          <td>Serge Baldwin</td>
-                          <td>Data Coordinator</td>
-                          <td>Singapore</td>
-                          <td>64</td>
-                          <td>2012/04/09</td>
-                        </tr>
-                        <tr>
-                          <td>Zenaida Frank</td>
-                          <td>Software Engineer</td>
-                          <td>New York</td>
-                          <td>63</td>
-                          <td>2010/01/04</td>
-                        </tr>
-                        <tr>
-                          <td>Zorita Serrano</td>
-                          <td>Software Engineer</td>
-                          <td>San Francisco</td>
-                          <td>56</td>
-                          <td>2012/06/01</td>
-                        </tr>
-                        <tr>
-                          <td>Jennifer Acosta</td>
-                          <td>Junior Javascript Developer</td>
-                          <td>Edinburgh</td>
-                          <td>43</td>
-                          <td>2013/02/01</td>
-                        </tr>
-                        <tr>
-                          <td>Cara Stevens</td>
-                          <td>Sales Assistant</td>
-                          <td>New York</td>
-                          <td>46</td>
-                          <td>2011/12/06</td>
-                        </tr>
-                        <tr>
-                          <td>Hermione Butler</td>
-                          <td>Regional Director</td>
-                          <td>London</td>
-                          <td>47</td>
-                          <td>2011/03/21</td>
-                        </tr>
-                        <tr>
-                          <td>Lael Greer</td>
-                          <td>Systems Administrator</td>
-                          <td>London</td>
-                          <td>21</td>
-                          <td>2009/02/27</td>
-                        </tr>
-    
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <th>Company</th>
-                          <th>Address</th>
-                          <th>Business Phone</th>
-                          <th>Contact</th>
-                          <th>Social Media</th>
-                        </tr>
-                      </tfoot>
+                  
+                      
+
+                        <tfoot>
+                            <tr>
+                              <th>Company</th>
+                              <th>Address</th>
+                              <th>Business Phone</th>
+                              <th>Contact</th>
+                              <th>Webpage</th>
+                            </tr>
+                          </tfoot>
                     </table>
                   </div>
                 </div>
@@ -498,6 +144,134 @@
       <script src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/js/dataTables.bootstrap5.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/js/script.js"></script>
+      <script src="js/jwt-decode.min.js"></script>
+      <script>
+
+function setCookie(name) {
+    let date = new Date();
+    // Set the cookie to expire one month from now.
+    date.setTime(date.getTime() + 30*60*60*1000);
+    let uID = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 20);
+    console.log('uuid: ', uID);
+    let domainName = window.location.hostname;
+    document.cookie = name + "=" + uID + "; expires=" + date.toUTCString() + "; domain=" + domainName + "; path=/";
+    console.log('Cookie: ' + name + ' is set.');
+    console.log(document.cookie);
+}
+
+function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) {
+        console.log('Cookie found!');
+      console.log(match[2]);
+    }
+    else{
+         console.log('Cookie: ' + name + ' was not found. Creating cookie.');
+         setCookie(name);
+    }
+ }
+    // getCookie("marketharderid");
+          let url_string = window.location.href;
+          let logged_in = false;
+          if (url_string.includes("id_token") && url_string.includes("access_token")) { // Check for tokens
+    let url = new URL(url_string.replace("#", "?"));
+          let idToken = url.searchParams.get("id_token");
+          let accessToken = url.searchParams.get("access_token");
+          if (!idToken || !accessToken) {
+              console.log('Not logged in 1');
+              logged_in = false;
+          } else {
+              console.log('logged in!');
+              console.log('idtoken: ' + idToken);
+              console.log('accesstoken: ' + accessToken);
+              localStorage.setItem('idtoken', String(idToken));
+              localStorage.setItem('accesstoken', String(accessToken));
+              logged_in = true;
+          }
+        } else {
+            const idtoken = localStorage.getItem('idtoken');
+    const accesstoken = localStorage.getItem('accesstoken');
+    if (!idtoken|| !accesstoken) {
+          console.log("Not logged in 2");
+          logged_in = false;
+      }
+      logged_in = true;
+        }
+        if (logged_in) {
+            const accesstoken = localStorage.getItem('accesstoken');
+            const idtoken = localStorage.getItem('idtoken');
+            console.log('fetching user info.');
+        let url = "https://8mtnj67pse.execute-api.us-east-1.amazonaws.com/test/getuserinfo?idtoken=" + idtoken;
+        fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            'Authorization' : 'Bearer '+ accesstoken,
+        },
+        })
+        .then(response => response.json())
+    .then(data => {
+        console.log('returned data');
+        console.log(data);
+        document.getElementById("welcome-message").innerHTML = "Welcome, " + String(data.body.first_name) + "!";
+        return data;
+    })
+    .catch(error => {
+        console.log('error');
+        console.log(error);
+        return error;
+    });
+
+    console.log('fetching leads');
+    url = "https://8mtnj67pse.execute-api.us-east-1.amazonaws.com/test/getleads?idtoken=" + idtoken;
+        fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            'Authorization' : 'Bearer '+ accesstoken,
+        },
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log('returned lead data');
+        console.log(data);
+        let leadTable = document.getElementById("lead-table");
+        let current_row = 0;
+        for (let i = 0; i < data.body.length; i++) {
+            if (data.body[i].companyName === null || data.body[i].companyName === 'undefined') {
+                continue;
+            }
+            let row = leadTable.insertRow(current_row+1);
+            let company = row.insertCell(0);
+            let address = row.insertCell(1);
+            let businessPhone = row.insertCell(2);
+            let contact = row.insertCell(3);
+            // let socialMedia = row.insertCell(4);
+            let webpage = row.insertCell(4);
+            // let ipAddress = row.insertCell(6);
+
+            company.innerHTML = ("companyName" in data.body[i] && data.body[i].companyName !== 'undefined') ? data.body[i].companyName : "";
+            address.innerHTML = ("Address" in data.body[i] && data.body[i].Address !== 'undefined') ? data.body[i].Address : "";
+            businessPhone.innerHTML = ("phone" in data.body[i] && data.body[i].phone !== 'undefined') ? data.body[i].phone : "";
+            contact.innerHTML = "";
+            // socialMedia.innerHTML = "";
+            webpage.innerHTML = ("website" in data.body[i] && data.body[i].website !== 'undefined') ? data.body[i].website : "";
+            // ipAddress.innerHTML = data.body[i].ipAddress !== null ? data.body[i].ipAddress : "";
+            current_row += 1;
+        }
+        return data;
+    })
+    .catch(error => {
+        console.log('error');
+        console.log(error);
+        return error;
+    });
+}
+      </script>
 </body>
 
 </html>

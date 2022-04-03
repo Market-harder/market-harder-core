@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/css/dataTables.bootstrap5.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/css/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/js/auth.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/js/auth.js"></script> -->
+  
   <title>MARKET HARDER - Accounts</title>
 </head>
 
-<body onload="authenticateUser()">
+<body>
   <!-- top navigation bar -->
   <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -56,6 +57,18 @@
                 <span>Script</span>
               </a>
           </li>
+          <li>
+            <a href="https://www.plans.marketharder.com/products" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-bag-fill"></i></span>
+                <span>Products</span>
+              </a>
+            </li>
+          <li>
+                <a href="https://marketharderauthalpha1.auth.us-east-1.amazoncognito.com/logout?client_id=11dr4aadh9fk76c7ablauvugel&logout_uri=https://www.marketharder.com/" class="nav-link px-3 ">
+                  <span class="me-2"><i class="bi bi-file-code-fill"></i></span>
+                  <span>Log Out</span>
+                </a>
+              </li>
           <li class="last-item">
             <a href="#" class="nav-link px-3 nav-link-active nav-link-last">
               <span class="me-2"><i class="bi bi-person-fill"></i></span>
@@ -83,14 +96,14 @@
             <div class="card-body"
               style="display: flex;justify-content: center; align-items: center; ">
 
-              <form autocomplete="off">
+              <form autocomplete="off" id="geninfo">
                 <div id="focus"></div>
-                <input type="text" half placeholder="First name" autocomplete="no">
-                <input type="text" half placeholder="Last name" autocomplete="no">
-                <input type="text" placeholder="E-mail" autocomplete="no">
-                <input type="text" half placeholder="Phone" autocomplete="no">
-                <input type="text" half placeholder="Business name" autocomplete="no">
-                <input type="text" placeholder="Address" autocomplete="no">
+                <input type="text" half placeholder="First name" autocomplete="no" id="fname">
+                <input type="text" half placeholder="Last name" autocomplete="no" id="lname">
+                <input type="text" placeholder="E-mail" autocomplete="no" id="email">
+                <input type="text" half placeholder="Phone" autocomplete="no" id="phone">
+                <input type="text" half placeholder="Business name" autocomplete="no" id="bname">
+                <input type="text" placeholder="Address" autocomplete="no" id="address">
                 <input class="theme-btn" type="submit" value="Save">
               </form>
 
@@ -110,6 +123,92 @@
   <script src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/js/dropdown.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/Market-harder/market-harder-core@master/website/js/form-script.js"></script>
+  <script>
+    console.log("starting script");
+    const idtoken = localStorage.getItem('idtoken');
+    const accesstoken = localStorage.getItem('accesstoken');
+     const infoForm = document.getElementById("geninfo");
+
+     if (idtoken && accesstoken) {
+         console.log('Logged in! Fetching user info.');
+         let url1 = "https://8mtnj67pse.execute-api.us-east-1.amazonaws.com/test/getuserinfo?idtoken=" + idtoken;
+        fetch(url1, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            'Authorization' : 'Bearer '+ accesstoken,
+        },
+        })
+        .then(response => response.json())
+    .then(data => {
+        console.log('returned data');
+        console.log(data);
+        console.log('first name: ' + data.body.first_name);
+        if (data.body.first_name != undefined) {
+            document.getElementById("fname").placeholder = data.body.first_name;
+        }
+        if (data.body.last_name != undefined) {
+            document.getElementById("lname").placeholder = data.body.last_name;
+        }
+        if (data.body.email != undefined) {
+            document.getElementById("email").placeholder = data.body.email;
+        }
+        if (data.body.phone != undefined) {
+            document.getElementById("phone").placeholder = data.body.phone;
+        }
+        if (data.body.companyName != undefined) {
+            document.getElementById("bname").placeholder = data.body.companyName;
+        }
+        if (data.body.address != undefined) {
+            document.getElementById("address").placeholder = data.body.address;
+        }
+        return data;
+    })
+    .catch(error => {
+        console.log('error');
+        console.log(error);
+        return error;
+    });
+     }
+
+
+    infoForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log("Form is submitted!");
+
+      if (document.getElementById("email").value == "" ||  document.getElementById("fname").value == "" || document.getElementById("lname").value == "" || document.getElementById("phone").value == "" || document.getElementById("address").value == "" || document.getElementById("bname").value == "") {
+          alert("You must fill all input boxes.");
+      } else if (!idtoken|| !accesstoken) {
+          alert("You are not logged in");
+      } else {
+        console.log('idtoken: ' + idtoken);
+        console.log('accesstoken: ' + accesstoken);
+      let url = "https://8mtnj67pse.execute-api.us-east-1.amazonaws.com/test/updateuserinfo";
+      fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            'Authorization' : 'Bearer '+ accesstoken,
+        },
+        body: JSON.stringify({"body" : { idtoken : String(idtoken), email : document.getElementById("email").value, fname : document.getElementById("fname").value, lname : document.getElementById("lname").value, phone : document.getElementById("phone").value, address : document.getElementById("address").value, bname : document.getElementById("bname").value}})
+    })
+    .then(data => {
+        console.log('returned data');
+        console.log(data);
+        return data;
+    })
+    .catch(error => {
+        console.log('error 2');
+        console.log(error);
+        return error;
+    });
+}
+    });
+  </script>
 </body>
 
 </html>
