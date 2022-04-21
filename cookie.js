@@ -7,6 +7,7 @@ function setCookie(name) {
     let domainName = window.location.hostname;
     document.cookie = "name=" + name + "; expires=" + date.toUTCString() + "; uid=" + uID + "; secure; domain=" + domainName + "; path=/";
     console.log('Cookie: ' + name + ' is set.');
+    return String(uID);
 }
 
 function getCookie(name) {
@@ -14,9 +15,10 @@ function getCookie(name) {
     if (match) {
         console.log('Cookie found!');
       console.log(match[2]);
+      return match[2];
     }
     else{
          console.log('Cookie: ' + name + ' was not found. Creating cookie.');
-         setCookie(name);
+         return setCookie(name);
     }
 }
