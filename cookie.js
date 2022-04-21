@@ -19,4 +19,4 @@ function getCookie(name) {
          console.log('Cookie: ' + name + ' was not found. Creating cookie.');
          setCookie(name);
     }
- }
+}
