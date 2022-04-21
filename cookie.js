@@ -7,6 +7,7 @@ function setCookie(name) {
     let domainName = window.location.hostname;
     document.cookie = "name=" + name + "; expires=" + date.toUTCString() + "; uid=" + uID + "; secure; domain=" + domainName + "; path=/";
     console.log('Cookie: ' + name + ' is set.');
+    console.log('Current cookies in setCookie:', document.coookie);
     return String(uID);
 }
 
@@ -21,7 +22,7 @@ function getCookie(cname) {
     //      console.log('Cookie: ' + name + ' was not found. Creating cookie.');
     //      return setCookie(name);
     // }
-    console.log('Current cookies:', document.coookie);
+    console.log('Current cookies in getCookie:', document.coookie);
     let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
@@ -35,6 +36,6 @@ function getCookie(cname) {
       return c.substring(name.length, c.length);
     }
   }
-  console.log('Cookie: ' + name + ' was not found with new method. Creating cookie.');
-  return setCookie(name);
+  console.log('Cookie: ' + cname + ' was not found with new method. Creating cookie.');
+  return setCookie(cname);
 }
