@@ -10,9 +10,8 @@ async function sendIP(ipAddr, pageUrl, apiKey, id, cookieID) {
             'Accept': '*/*',
             'x-api-key': apiKey,
             'ID': id,
-            'cookie': cookieID,
         },
-        body: JSON.stringify({ ip : ipAddr, page : pageUrl})
+        body: JSON.stringify({ ip : ipAddr, page : pageUrl, cookie: cookieID})
     })
     .then(data => {
         console.log('data');
