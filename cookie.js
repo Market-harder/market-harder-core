@@ -2,10 +2,11 @@ function setCookie(name) {
     let date = new Date();
     // Set the cookie to expire one month from now.
     date.setTime(date.getTime() + 30*60*60*1000);
-    let uID = crypto.randomUUID();
+    let uID = String(crypto.randomUUID());
     console.log('uuid: ', uID);
     let domainName = window.location.hostname;
     document.cookie = "name=" + name + "; expires=" + date.toUTCString() + "; uid=" + uID + "; secure; domain=" + domainName + "; path=/";
+    document.cookie = "testcookie=test cookie";
     console.log('Cookie: ' + name + ' is set.');
     console.log('Current cookies in setCookie:', document.coookie);
     return String(uID);
