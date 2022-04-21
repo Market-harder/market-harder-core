@@ -10,15 +10,31 @@ function setCookie(name) {
     return String(uID);
 }
 
-function getCookie(name) {
-    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    if (match) {
-        console.log('Cookie found!');
-      console.log(match[2]);
-      return match[2];
+function getCookie(cname) {
+    // var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    // if (match) {
+    //     console.log('Cookie found!');
+    //   console.log(match[2]);
+    //   return match[2];
+    // }
+    // else{
+    //      console.log('Cookie: ' + name + ' was not found. Creating cookie.');
+    //      return setCookie(name);
+    // }
+    console.log('Current cookies:', document.coookie);
+    let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
     }
-    else{
-         console.log('Cookie: ' + name + ' was not found. Creating cookie.');
-         return setCookie(name);
+    if (c.indexOf(name) == 0) {
+        console.log('Cookie found with new method!');
+      return c.substring(name.length, c.length);
     }
+  }
+  console.log('Cookie: ' + name + ' was not found with new method. Creating cookie.');
+  return setCookie(name);
 }
