@@ -2,6 +2,17 @@
 async function sendIP(ipAddr, pageUrl, apiKey, id, cookieID) {
     console.log('Executing sendIP() from jsdelivr');
     url = 'https://dlnes1h1gk.execute-api.us-east-2.amazonaws.com/test0_3/searchip';
+    let currentPage = new URL(window.location.href);
+    let params = new URLSearchParams(currentPage.search);
+    let testValue = params.get('testScript');
+    let uuid = params.get('randomId');
+    let requestBody = {};
+    if (testValue === 'true' && uuid !== null) {
+        requestBody = JSON.stringify({ ip : ipAddr, page : pageUrl, cookie: cookieID, randomId: uuid, isTest: true});
+        console.log('Sending test request to backend.');
+    } else {
+        requestBody = JSON.stringify({ ip : ipAddr, page : pageUrl, cookie: cookieID});
+    }
     fetch(url, {
         method: 'POST',
         mode: 'cors',
@@ -11,7 +22,7 @@ async function sendIP(ipAddr, pageUrl, apiKey, id, cookieID) {
             'x-api-key': apiKey,
             'ID': id,
         },
-        body: JSON.stringify({ ip : ipAddr, page : pageUrl, cookie: cookieID})
+        body: requestBody
     })
     .then(data => {
         console.log('data');
